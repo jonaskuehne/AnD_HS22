@@ -16,7 +16,7 @@ public class RoadTrip {
         int[] k = {5, 7, 13, 16, 25};
         int d = 10;
 
-        int n = k.length - 1;
+        int n = k.length;
 
         // table
         boolean[][] table = new boolean[n][n];
