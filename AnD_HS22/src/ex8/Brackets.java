@@ -27,7 +27,6 @@ public class Brackets {
             // close square bracket
             } else if (current == ']') {
                 // check if last square bracket
-                // could check here with peek if not empty between brackets
                 if (brackets.isEmpty() || !(brackets.pop() == '[')) {
                     // illegal
                     System.out.println("not valid");
@@ -39,7 +38,6 @@ public class Brackets {
             // close round bracket
             } else if (current == ')') {
                 // check if last round bracket
-                // could check here with peek if not empty between brackets
                 if (brackets.isEmpty() || !(brackets.pop() == '(')) {
                     // illegal
                     System.out.println("not valid");
