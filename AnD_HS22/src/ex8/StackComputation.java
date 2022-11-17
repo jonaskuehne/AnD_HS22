@@ -1,5 +1,7 @@
 package ex8;
 
+import java.util.Stack;
+
 /*
 Author: J. Kuehne
 Date: 15.11.2022
@@ -12,8 +14,15 @@ Summary:
 public class StackComputation {
     public static void main(String[] args) {
         // input
-        // stack as array, skip step first stack then array
-        int[] s = {7, 2, 3, 4};
+        // array as convenience
+        int[] in = {7, 2, 3, 4};
+
+        // convert to stack
+        Stack<Integer> stack = new Stack<Integer>();
+        for (int i = in.length - 1; i >= 0; --i) {
+            stack.push(in[i]);
+        }
+
         int c = 10;
 
         // invalid input
@@ -23,11 +32,12 @@ public class StackComputation {
         }
 
         // dp-table
-        boolean[][] table = new boolean[c][s.length];
+        boolean[][] table = new boolean[c][in.length];
 
         // base case
-        if (s[0] <= c) {
-            table[s[0] - 1][0] = true;
+        int base = stack.pop();
+        if (base <= c) {
+            table[base - 1][0] = true;
         }
 
         // fill table
@@ -35,20 +45,21 @@ public class StackComputation {
         for (int col = 1; col < table[0].length; ++col) {
             // general updates
             // element itself
-            if (s[col] <= c) {
-                table[s[col] - 1][col] = true;
+            int elem = stack.pop();
+            if (elem <= c) {
+                table[elem - 1][col] = true;
             }
             // row
             for (int row = 0; row < table.length; ++row) {
                 // last one computable
                 if (table[row][col - 1]) {
                     // addition with last
-                    if ((row + 1) + s[col] <= c) {
-                        table[(row + 1) + s[col] - 1][col] = true;
+                    if ((row + 1) + elem <= c) {
+                        table[(row + 1) + elem - 1][col] = true;
                     }
                     // multiplication with last
-                    if ((row + 1) * s[col] <= c) {
-                        table[(row + 1) * s[col] - 1][col] = true;
+                    if ((row + 1) * elem <= c) {
+                        table[(row + 1) * elem - 1][col] = true;
                     }
                 }
             }
