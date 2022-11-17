@@ -38,14 +38,6 @@ public class StackComputation {
             if (s[col] <= c) {
                 table[s[col] - 1][col] = true;
             }
-            // addition with last
-            if (s[col - 1] + s[col] <= c) {
-                table[s[col - 1] + s[col] - 1][col] = true;
-            }
-            // multiplication with last
-            if (s[col - 1] * s[col] <= c) {
-                table[s[col - 1] * s[col] - 1][col] = true;
-            }
             // row
             for (int row = 0; row < table.length; ++row) {
                 // last one computable
