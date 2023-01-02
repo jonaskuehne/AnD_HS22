@@ -10,18 +10,6 @@ Summary:
 */
 
 public class BinarySearch {
-    public static void main(String[] args) {
-        // sorted input
-        int[] in = {Integer.MIN_VALUE, Integer.MIN_VALUE + 2, -2, 0, 2, 
-                Integer.MAX_VALUE - 2, Integer.MAX_VALUE};
-
-        // value to search
-        int val = -8;
-        
-        // get info
-        printInfo(in, val, recBinarySearch(in, val, 0, in.length), "rec");
-        printInfo(in, val, iterBinarySearch(in, val, 0, in.length), "iter");   
-    }
 
     // returns key, if not in array key of next smaller element
     // recursive for theory
@@ -70,11 +58,5 @@ public class BinarySearch {
         // not found, if true / false wanted: here false
         return m;
     }
-
-    // print info
-    public static void printInfo(int[] in, int val, int key, String name) {
-        System.out.println("result for " + val + " with method " + name + 
-                ": got key " + key + ", element at key: " + in[key]);
-    }
-
+    
 }
