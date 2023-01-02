@@ -26,8 +26,8 @@ public class GetGraph {
         }
     }
 
-    // get directed adj. list unweighted
-    public static void getDirGraphAdjList(Scanner in, 
+    // get adj. list unweighted
+    public static void getGraphAdjList(Scanner in, 
             ArrayList<ArrayList<Integer>> graph) {
         // number of vertices
         int n = in.nextInt();
@@ -45,9 +45,9 @@ public class GetGraph {
         }
     }
 
-    // get undirected adj. list unweighted
-    public static void getUndirGraphAdjList(Scanner in, 
-            ArrayList<ArrayList<Integer>> graph) {
+    // get adj. list weighted
+    public static void getEdgeGraphAdjList(Scanner in, 
+            ArrayList<ArrayList<Edge>> graph) {
         // number of vertices
         int n = in.nextInt();
         // number of edges
@@ -62,9 +62,9 @@ public class GetGraph {
         for (int i = 0; i < m; ++i) {
             int from = in.nextInt();
             int to = in.nextInt();
-            // both ways since undirected
-            graph.get(from).add(to);
-            graph.get(to).add(from);
+            int cost = in.nextInt();
+            graph.get(from).add(new Edge(from, to, cost));
         }
     }
+
 }
