@@ -23,16 +23,25 @@ public class GraphDriver {
         ArrayList<ArrayList<Integer>> simpleGraph = new ArrayList<>();
         GetGraph.getGraphAdjList(in, simpleGraph);
         System.out.println("DFS: has cycle: " + DFS.hasCycle(simpleGraph));
-
+        System.out.println();
+        
         // BFS, get shortest distances (use same graph)
         System.out.println("BFS: shortest distances in unweighted graph: " + Arrays.toString(BFS.shortestPaths(simpleGraph, 0)));
+        System.out.println();
 
         // Dijkstra
         in = new Scanner(new File("AnD_HS22/src/memoAlgs/graphs/dijkstra.in"));
         ArrayList<ArrayList<Edge>> dijkstraGraph = new ArrayList<>();
         GetGraph.getEdgeGraphAdjList(in, dijkstraGraph);
         System.out.println("Dijkstra: shortest distances in weighted graph: " + Arrays.toString(Dijkstra.shortestPaths(dijkstraGraph, 0)));
+        System.out.println();
 
-
+        // Bellman-Ford
+        in = new Scanner(new File("AnD_HS22/src/memoAlgs/graphs/bellmanFord.in"));
+        int n = in.nextInt();
+        ArrayList<Edge> bellmanFordGraph = new ArrayList<>();
+        GetGraph.getGraphEdges(in, bellmanFordGraph);
+        System.out.println("Bellman-Ford: shortest distances in weighted graph: " + Arrays.toString(BellmanFord.shortestPaths(bellmanFordGraph, 0, n)));
+        System.out.println();
     }
 }
