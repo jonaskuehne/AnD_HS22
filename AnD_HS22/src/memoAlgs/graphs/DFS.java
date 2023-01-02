@@ -12,7 +12,7 @@ Summary:
 */
 
 public class DFS {
-    // general idea, here used to detect cycles
+    // general idea, here used to detect cycles -> also poss. w/ BFS
     /*
      * really need iterative variant and BFS no sufficient: 
      * BFS with stack instead of queue

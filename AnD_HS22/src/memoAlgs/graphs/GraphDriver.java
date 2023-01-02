@@ -2,6 +2,8 @@ package memoAlgs.graphs;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 
@@ -18,10 +20,13 @@ public class GraphDriver {
     public static void main(String[] args) throws FileNotFoundException {
         // DFS, check if graph has cycles
         Scanner in = new Scanner(new File("AnD_HS22/src/memoAlgs/graphs/graphWcycle.in"));
-        ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
-        GetGraph.getDirGraphAdjList(in, graph);
-        System.out.println(DFS.hasCycle(graph));
+        ArrayList<ArrayList<Integer>> simpleGraph = new ArrayList<>();
+        GetGraph.getDirGraphAdjList(in, simpleGraph);
+        System.out.println(DFS.hasCycle(simpleGraph));
 
-        // BFS
+        // BFS, get shortest distances (use same graph)
+        System.out.println(Arrays.toString(BFS.shortestPaths(simpleGraph, 0)));
+
+        
     }
 }
