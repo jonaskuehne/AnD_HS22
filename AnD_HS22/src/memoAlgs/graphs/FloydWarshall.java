@@ -14,6 +14,7 @@ Summary:
 
 public class FloydWarshall {
 
+    // used for its original purpose (all-pairs shortest path)
     public static int[][] shortestPath(List<Edge> graph, int n) {
 
         // init
