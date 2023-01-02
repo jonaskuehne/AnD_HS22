@@ -57,5 +57,17 @@ public class GraphDriver {
         GetGraph.getGraphEdges(in, kruskalGraph);
         System.out.println("MST with Kruskal: " + Kruskal.mst(kruskalGraph, n));
         System.out.println();
+
+        // Johnson
+        in = new Scanner(new File("AnD_HS22/src/memoAlgs/graphs/allPairsGraph.in"));
+        n = in.nextInt();
+        ArrayList<Edge> johnsonGraph = new ArrayList<>();
+        GetGraph.getGraphEdges(in, johnsonGraph);
+        System.out.println("Allpairs-Distance with Johnson: ");
+        int[][] d = FloydWarshall.shortestPath(johnsonGraph, n);
+        for (int[] a : d) {
+            System.out.println(Arrays.toString(a));
+        }
+        System.out.println();
     }
 }

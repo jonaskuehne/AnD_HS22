@@ -25,7 +25,7 @@ public class FloydWarshall {
 
         // init
         int[][] curr = new int[n][n];
-        int[][] last = new int[n][n];
+        // int[][] last = new int[n][n];
         // not reachable
         for (int i = 0; i < n; ++i) {
             Arrays.fill(curr[i], Integer.MAX_VALUE);
@@ -48,19 +48,19 @@ public class FloydWarshall {
         for (int i = 0; i < n; ++i) {
             // copy
             for (int k = 0; k < n; ++k) {
-                last[k] = curr[k].clone();
+            //    last[k] = curr[k].clone();
             }
             // from
             for (int x = 0; x < n; ++x) {
                 // to
                 for (int y = 0; y < n; ++y) {
                     // get sum
-                    int sum = last[x][i] + last[i][y];
-                    if (last[x][i] == Integer.MAX_VALUE || last[i][y] == Integer.MAX_VALUE) {
+                    int sum = curr[x][i] + curr[i][y];
+                    if (curr[x][i] == Integer.MAX_VALUE || curr[i][y] == Integer.MAX_VALUE) {
                         sum = Integer.MAX_VALUE;
                     }
                     // prevent overflow
-                    curr[x][y] = Math.min(last[x][y], sum);
+                    curr[x][y] = Math.min(curr[x][y], sum);
                 }
             }
             // print
