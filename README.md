@@ -1,2 +1,2 @@
 # AnD_HS22
-Exercises AnD
+Übungen AnD + wichtige Alg. für auswendig
