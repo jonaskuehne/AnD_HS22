@@ -15,7 +15,6 @@ Summary:
 
 public class Dijkstra {
 
-    // disclaimer: Edge is used as tuple in heap: from is vertex, cost is distance
     // used for its original purpose (shortest distances in nonneg graphs)
     public static int[] shortestPaths(ArrayList<ArrayList<Edge>> graph, int start) {
         int n = graph.size();

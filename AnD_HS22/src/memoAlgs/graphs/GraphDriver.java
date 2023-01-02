@@ -47,6 +47,15 @@ public class GraphDriver {
         in = new Scanner(new File("AnD_HS22/src/memoAlgs/graphs/mstGraph.in"));
         ArrayList<ArrayList<Edge>> primGraph = new ArrayList<>();
         GetGraph.getDirEdgeGraphAdjList(in, primGraph);
-        System.out.println(Prim.mst(primGraph, 0));
+        System.out.println("MST with Prim: " + Prim.mst(primGraph, 0));
+        System.out.println();
+
+        // Kruskal (not really necessary if Prim possible...)
+        in = new Scanner(new File("AnD_HS22/src/memoAlgs/graphs/mstGraph.in"));
+        n = in.nextInt();
+        ArrayList<Edge> kruskalGraph = new ArrayList<>();
+        GetGraph.getGraphEdges(in, kruskalGraph);
+        System.out.println("MST with Kruskal: " + Kruskal.mst(kruskalGraph, n));
+        System.out.println();
     }
 }

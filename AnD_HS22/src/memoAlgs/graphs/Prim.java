@@ -16,7 +16,6 @@ Summary:
 
 public class Prim {
 
-    // disclaimer: Edge is used as tuple in heap: from is vertex, cost is distance
     // used for its original purpose (MST)
     public static List<Edge> mst(ArrayList<ArrayList<Edge>> graph, int start) {
         int n = graph.size();
