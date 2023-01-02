@@ -12,10 +12,10 @@ Summary:
 */
 
 public class DFS {
-    // general idea, here used to detect cycles -> also poss. w/ BFS
+    // general idea, here used to detect cycles
     /*
-     * really need iterative variant and BFS no sufficient: 
-     * BFS with stack instead of queue
+     * really need iterative variant and BFS not sufficient: 
+     * BFS with stack instead of queue (really not a fan)
      */
     public static boolean hasCycle(ArrayList<ArrayList<Integer>> graph) {
         // track visited
