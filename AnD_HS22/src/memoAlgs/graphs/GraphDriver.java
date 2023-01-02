@@ -3,7 +3,6 @@ package memoAlgs.graphs;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 
@@ -30,18 +29,24 @@ public class GraphDriver {
         System.out.println();
 
         // Dijkstra
-        in = new Scanner(new File("AnD_HS22/src/memoAlgs/graphs/dijkstra.in"));
+        in = new Scanner(new File("AnD_HS22/src/memoAlgs/graphs/dijkstraGraph.in"));
         ArrayList<ArrayList<Edge>> dijkstraGraph = new ArrayList<>();
         GetGraph.getEdgeGraphAdjList(in, dijkstraGraph);
         System.out.println("Dijkstra: shortest distances in weighted graph: " + Arrays.toString(Dijkstra.shortestPaths(dijkstraGraph, 0)));
         System.out.println();
 
         // Bellman-Ford
-        in = new Scanner(new File("AnD_HS22/src/memoAlgs/graphs/bellmanFord.in"));
+        in = new Scanner(new File("AnD_HS22/src/memoAlgs/graphs/bellmanFordGraph.in"));
         int n = in.nextInt();
         ArrayList<Edge> bellmanFordGraph = new ArrayList<>();
         GetGraph.getGraphEdges(in, bellmanFordGraph);
         System.out.println("Bellman-Ford: shortest distances in weighted graph: " + Arrays.toString(BellmanFord.shortestPaths(bellmanFordGraph, 0, n)));
         System.out.println();
+
+        // Prim
+        in = new Scanner(new File("AnD_HS22/src/memoAlgs/graphs/mstGraph.in"));
+        ArrayList<ArrayList<Edge>> primGraph = new ArrayList<>();
+        GetGraph.getDirEdgeGraphAdjList(in, primGraph);
+        System.out.println(Prim.mst(primGraph, 0));
     }
 }

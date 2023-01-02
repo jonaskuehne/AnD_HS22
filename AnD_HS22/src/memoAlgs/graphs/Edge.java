@@ -27,4 +27,9 @@ public class Edge implements Comparable<Edge> {
         return Integer.compare(this.cost, other.cost);
     }
 
+    @Override
+    public String toString() {
+        return from + " -> " + to + ": " + cost;
+    }
+
 }

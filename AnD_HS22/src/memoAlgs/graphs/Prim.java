@@ -2,6 +2,7 @@ package memoAlgs.graphs;
 
 import java.util.PriorityQueue;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Arrays;
 
 /*
@@ -10,20 +11,22 @@ Date: 02.01.2023
 Lecture: AnD
 Project: Exam Prep
 Summary:
-    This file implements Dijkstras algorithm.
+    This file implements Prims algorithm.
 */
 
-public class Dijkstra {
+public class Prim {
 
     // disclaimer: Edge is used as tuple in heap: from is vertex, cost is distance
-    // used for its original purpose (shortest distances in nonneg graphs)
-    public static int[] shortestPaths(ArrayList<ArrayList<Edge>> graph, int start) {
+    // used for its original purpose (MST)
+    public static List<Edge> mst(ArrayList<ArrayList<Edge>> graph, int start) {
         int n = graph.size();
         // store distances
         int[] d = new int[n];
         // init
         Arrays.fill(d, Integer.MAX_VALUE);
         d[start] = 0;
+        // store used edges
+        List<Edge> mstEdges = new ArrayList<>();
 
         // create heap
         PriorityQueue<Edge> heap = new PriorityQueue<>();
@@ -37,6 +40,11 @@ public class Dijkstra {
         while (numAdded < n && !heap.isEmpty()) {
             // get element
             Edge e = heap.poll();
+            // add to list, weight no longer accurate but who cares
+            // skip first one
+            if (e.from != e.to) {
+                mstEdges.add(e);
+            }
             // mark
             done[e.to] = true;
             ++numAdded;
@@ -45,7 +53,7 @@ public class Dijkstra {
                 // not done yet
                 if (!done[next.to]) {
                     // adjust distance
-                    d[next.to] = Math.min(d[next.to], d[next.from] + next.cost);
+                    d[next.to] = Math.min(d[next.to], next.cost);
                     // yeet into heap
                     // could be removed before, but needs O(n)...
                     heap.add(new Edge(next.from, next.to, d[next.to]));
@@ -53,6 +61,6 @@ public class Dijkstra {
             }
         }
 
-        return d;
+        return mstEdges;
     }
 }

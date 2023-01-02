@@ -67,4 +67,27 @@ public class GetGraph {
         }
     }
 
+    // get adj. list weighted
+    public static void getDirEdgeGraphAdjList(Scanner in, 
+            ArrayList<ArrayList<Edge>> graph) {
+        // number of vertices
+        int n = in.nextInt();
+        // number of edges
+        int m = in.nextInt();
+        
+        // prepare
+        for (int i = 0; i < n; ++i) {
+            graph.add(new ArrayList<>());
+        }
+
+        // add edges
+        for (int i = 0; i < m; ++i) {
+            int from = in.nextInt();
+            int to = in.nextInt();
+            int cost = in.nextInt();
+            graph.get(from).add(new Edge(from, to, cost));
+            graph.get(to).add(new Edge(to, from, cost));
+        }
+    }
+
 }
