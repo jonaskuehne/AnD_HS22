@@ -37,7 +37,7 @@ public class BinarySearch {
     public static int iterBinarySearch(int[] in, int val, int l, int r) {
         // store mid
         int m = 0;
-        while (l < r) {
+        while (l <= r) {
             // new mid
             m = (l + r) / 2;
             // found
