@@ -35,11 +35,10 @@ public class BinarySearch {
     // returns key, if not in array key of next smaller element
     // iterative for code expert
     public static int iterBinarySearch(int[] in, int val, int l, int r) {
-        // store mid
-        int m = 0;
+
         while (l <= r) {
             // new mid
-            m = (l + r) / 2;
+            int m = (l + r) / 2;
             // found
             // true / false wanted: here true
             if (in[m] == val) {
@@ -56,7 +55,7 @@ public class BinarySearch {
             }
         }
         // not found, if true / false wanted: here false
-        return m;
+        return (l + r) / 2;
     }
     
 }
