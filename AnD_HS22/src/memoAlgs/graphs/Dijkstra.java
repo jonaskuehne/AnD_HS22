@@ -36,18 +36,21 @@ public class Dijkstra {
         while (numAdded < n && !heap.isEmpty()) {
             // get element
             Edge e = heap.poll();
-            // mark
-            done[e.to] = true;
-            ++numAdded;
-            // adjust
-            for (Edge next : graph.get(e.to)) {
-                // not done yet
-                if (!done[next.to]) {
-                    // adjust distance
-                    d[next.to] = Math.min(d[next.to], d[next.from] + next.cost);
-                    // yeet into heap
-                    // could be removed before, but needs O(n)...
-                    heap.add(new Edge(next.from, next.to, d[next.to]));
+            // not already done
+            if (!done[e.to]) {
+                // mark
+                done[e.to] = true;
+                ++numAdded;
+                // adjust
+                for (Edge next : graph.get(e.to)) {
+                    // not done yet
+                    if (!done[next.to]) {
+                        // adjust distance
+                        d[next.to] = Math.min(d[next.to], d[next.from] + next.cost);
+                        // yeet into heap
+                        // could be removed before, but needs O(n)...
+                        heap.add(new Edge(next.from, next.to, d[next.to]));
+                    }
                 }
             }
         }
