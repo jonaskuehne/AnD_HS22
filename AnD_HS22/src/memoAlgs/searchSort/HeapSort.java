@@ -11,6 +11,8 @@ Summary:
     This file implements heapsort (in case we get prioqueue).
 */
 
+// de wördi de ned als goto sortieralg oswändig lerne he ;)
+
 public class HeapSort {
     
     // sorts array using prio queue
